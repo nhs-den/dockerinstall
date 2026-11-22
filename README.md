@@ -41,6 +41,40 @@ Desktop** di platform tersebut.
   di tahap deteksi dan dilaporkan sebagai peringatan (bukan error) bila tidak
   dapat dijangkau.
 
+## Instalasi skrip (get the script)
+
+> ⚠️ **JANGAN ambil file ini dari halaman `blob` GitHub secara langsung.**
+> Halaman `blob` itu berisi HTML → file hasil download jadi tidak bisa
+> dijalankan (kesalahan `syntax error ... <!DOCTYPE html>`).
+>
+> Gunakan salah satu cara di bawah ini, lalu **verifikasi isinya** seperti di
+> langkah terakhir — itulah yang mencegah error `syntax error` / HTML.
+
+Cara 1 — clone repositori (bagus untuk tracking):
+
+```bash
+git clone https://github.com/nhs-den/dockerinstall.git
+cd dockerinstall
+```
+
+Cara 2 — hanya unduh file skripnya:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/nhs-den/dockerinstall/main/install-docker.sh -o install-docker.sh
+```
+
+Verifikasi & siap pakai:
+
+```bash
+head -n 1 install-docker.sh    # harus menampilkan: #!/usr/bin/env bash
+bash -n install-docker.sh      # tidak boleh ada error
+chmod +x install-docker.sh
+```
+
+Kalau `head -n 1` menampilkan `<!DOCTYPE html>` atau teks HTML lain, berarti
+file yang diunduh bukan skripnya. Hapus file itu dan ulangi langkah di atas
+(gunakan URL `raw.githubusercontent.com`, bukan `github.com/.../blob/...`).
+
 ## Cara pakai
 
 ```bash
